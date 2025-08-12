@@ -149,10 +149,3 @@ python -m logicif.evaluation \
 **For compare_outputs:**
 - `--result_file`: Path to file with extracted results
 
-#### Citation
-If you found this work useful, please consider cite our paper:
-```
-
-```
-
-
