@@ -25,7 +25,6 @@ Set up OpenAI API key in `config.json` (or use environment variables):
 - [LogicIF: Complex Logical Instruction Following](#logicif-complex-logical-instruction-following)
       - [Installation](#installation)
       - [Prerequisites](#prerequisites)
-  - [Table of Contents](#table-of-contents)
   - [🚀 Quick Start](#-quick-start)
     - [Evaluate Models on LogicIFEval or LogicIFEval-mini](#evaluate-models-on-logicifeval-or-logicifeval-mini)
       - [Step 1: Get Raw Responses](#step-1-get-raw-responses)
