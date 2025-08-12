@@ -113,7 +113,7 @@ python -m logicif.inference \
 
 ## 📊 Evaluation
 
-The evaluation module provides tools to extract model outputs and compare them against expected results. In our paper, we use `gpt-4-mini` as the json extractor.
+The evaluation module provides tools to extract model outputs and compare them against expected results. In our paper, we use `gpt-4.1-mini` as the json extractor.
 
 #### (Optional) Extract LLM Results
 
@@ -124,7 +124,7 @@ python -m logicif.evaluation \
     --todo extract_llm_results \
     --input_file "sample_inference_output.jsonl" \
     --output_file "sample_result.jsonl" \
-    --extract_model "gpt-4-mini" \
+    --extract_model "gpt-4.1-mini" \
     --overwrite
 ```
 
