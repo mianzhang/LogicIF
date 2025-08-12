@@ -1,0 +1,12 @@
+[
+  {
+    "turn": 1,
+    "evolution_description": "Added multi-phase processing combining iterative dynamic programming up to sqrt(n) and fast matrix exponentiation via recursive exponentiation-by-squaring; tracked dp iterations, matrix multiplication calls, and recursion depth",
+    "stats_keys": [
+      "dp_steps",
+      "matrix_mults",
+      "binary_steps"
+    ],
+    "function_length": 32
+  }
+]

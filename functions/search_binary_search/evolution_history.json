@@ -1,0 +1,12 @@
+[
+  {
+    "turn": 1,
+    "evolution_description": "Added a two-phase search combining interpolation search with a fallback binary search, tracking dynamic phases and detailed step counts for each phase",
+    "stats_keys": [
+      "phases",
+      "interpolations",
+      "binary_steps"
+    ],
+    "function_length": 34
+  }
+]

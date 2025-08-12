@@ -1,0 +1,7 @@
+{
+  "stats_keys": [
+    "bucket_assignments",
+    "insertion_comparisons",
+    "insertion_swaps"
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "turn": 1,
+    "evolution_description": "Implemented bucket sort with sqrt(n) buckets and insertion sort per bucket, tracking bucket assignments and insertion sort operations",
+    "stats_keys": [
+      "bucket_assignments",
+      "insertion_comparisons",
+      "insertion_swaps"
+    ],
+    "function_length": 37
+  }
+]

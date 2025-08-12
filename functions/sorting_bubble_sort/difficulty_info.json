@@ -1,0 +1,43 @@
+{
+  "function_name": "sorting_bubble_sort",
+  "task_id": "sorting_bubble_sort",
+  "complexity_score": 54.5,
+  "ast_analysis": {
+    "function_count": 1,
+    "class_count": 0,
+    "import_count": 0,
+    "if_statements": 4,
+    "for_loops": 4,
+    "while_loops": 1,
+    "try_blocks": 0,
+    "with_statements": 0,
+    "function_calls": 7,
+    "return_statements": 2,
+    "assignments": 17,
+    "comparisons": 5,
+    "boolean_operations": 1,
+    "lists_created": 2,
+    "dicts_created": 2,
+    "sets_created": 0,
+    "tuples_created": 2,
+    "max_nesting_depth": 4,
+    "cyclomatic_complexity": 10,
+    "total_function_lines": 37,
+    "average_function_length": 37.0,
+    "function_names": [
+      "f"
+    ],
+    "imported_modules": [],
+    "unique_variables": 13,
+    "builtin_functions_used": [
+      "int",
+      "len",
+      "range"
+    ],
+    "statistics_increments": [],
+    "total_control_structures": 9,
+    "code_complexity_score": 54.5,
+    "parsing_success": true,
+    "parsing_error": null
+  }
+}

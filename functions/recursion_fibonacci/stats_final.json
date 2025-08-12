@@ -1,0 +1,7 @@
+{
+  "stats_keys": [
+    "dp_steps",
+    "matrix_mults",
+    "binary_steps"
+  ]
+}

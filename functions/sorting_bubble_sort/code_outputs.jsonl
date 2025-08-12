@@ -1,0 +1,4 @@
+{"case_id": 0, "output": [1, 1, 3, 4, 5], "stats": {"bucket_assignments": 5, "insertion_comparisons": 4, "insertion_swaps": 2}, "input": [[3, 1, 4, 1, 5]], "success": true}
+{"case_id": 1, "output": [], "stats": {"bucket_assignments": 0, "insertion_comparisons": 0, "insertion_swaps": 0}, "input": [[]], "success": true}
+{"case_id": 2, "output": [1, 2, 3, 4, 5], "stats": {"bucket_assignments": 5, "insertion_comparisons": 3, "insertion_swaps": 0}, "input": [[1, 2, 3, 4, 5]], "success": true}
+{"case_id": 3, "output": [1, 2, 3, 4, 5], "stats": {"bucket_assignments": 5, "insertion_comparisons": 4, "insertion_swaps": 4}, "input": [[5, 4, 3, 2, 1]], "success": true}

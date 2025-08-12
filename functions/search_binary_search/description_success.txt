@@ -1,0 +1,54 @@
+INPUTS: Okay, let’s imagine you have in front of you a list of numbers called arr – they’re sorted in ascending order, and you know exactly how many items are in it by just counting them, that count is n. You also have a single number called target that you want to find inside that list. If you ever discover that n is zero (meaning the list is empty), you’ll immediately know there’s nothing to search and you’ll return “not found.” Everything else that follows assumes your list has at least one element. 
+
+LOGICS: Step 1 – Initialization:
+First, write down three counters on your paper: interpolations = 0, binary_steps = 0, and phases = 0.
+Then note n, the length of your list arr.  
+
+Step 2 – Handle the empty case:
+Check if n is zero. If it is, you’re done: you’ll return index = –1 and those three counters (all still zero).
+
+Step 3 – Prepare for interpolation search:
+Set left = 0 and right = n – 1.  
+Set phases = 1 (we’re now in phase one).  
+Calculate max_interp as the bit length of n: write n in binary, count how many digits are in that representation. That count is your max number of interpolation tries.
+
+Step 4 – Interpolation loop:
+Repeat up to max_interp times:
+  1. Increase interpolations by 1.  
+  2. On your paper check: if left > right OR if arr[left] == arr[right], break out of this loop immediately.  
+  3. Otherwise compute:
+       range_width = right – left
+       value_span = arr[right] – arr[left]
+       relative_pos = (target – arr[left]) × range_width  
+         – then do integer division by value_span (discard any remainder)
+       pos = left + relative_pos
+  4. If pos < left OR pos > right, stop this interpolation loop (break).
+  5. Look at arr[pos]:
+       – If it equals target, you can stop everything and return index = pos along with your three counters.
+       – If arr[pos] < target, set left = pos + 1 (we’ll search to the right).
+         Otherwise set right = pos – 1 (search to the left).
+  6. Then go back and repeat until you’ve done max_interp iterations or you hit a break.
+
+Step 5 – Switch to binary search:
+Set phases = 2 (we’ve finished interpolation and are now in phase two).
+
+Step 6 – Standard binary-search loop:
+While left <= right:
+  1. Increase binary_steps by 1.
+  2. Compute mid = floor((left + right) / 2).
+  3. Check arr[mid]:
+       – If it equals target, stop and return index = mid with your counters.
+       – If arr[mid] < target, set left = mid + 1.
+       – Otherwise set right = mid – 1.
+  4. Repeat this loop until left > right or you find the target.
+
+Step 7 – Final outcome if no match found:
+If you exit the binary-search loop without finding the target, you return index = –1 along with the three counters you’ve been tracking (phases will be 2, interpolations as counted, and binary_steps as counted). 
+
+OUTPUTS: At the end you’ll have two things:  
+1) A single integer which is either the index in arr where target lives or –1 if it never showed up.  
+2) A small summary object containing:
+   • phases: either 1 (if you found or broke out during interpolation) or 2 (if you finished the interpolation phase and went into binary search),  
+   • interpolations: the total number of interpolation attempts you made,  
+   • binary_steps: the total number of binary‐search steps you performed.  
+Put it together exactly as (index, { 'phases': phases, 'interpolations': interpolations, 'binary_steps': binary_steps }).

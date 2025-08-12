@@ -1,0 +1,42 @@
+{
+  "function_name": "search_binary_search",
+  "task_id": "search_binary_search",
+  "complexity_score": 39.0,
+  "ast_analysis": {
+    "function_count": 1,
+    "class_count": 0,
+    "import_count": 0,
+    "if_statements": 7,
+    "for_loops": 1,
+    "while_loops": 1,
+    "try_blocks": 0,
+    "with_statements": 0,
+    "function_calls": 3,
+    "return_statements": 4,
+    "assignments": 14,
+    "comparisons": 10,
+    "boolean_operations": 2,
+    "lists_created": 0,
+    "dicts_created": 4,
+    "sets_created": 0,
+    "tuples_created": 6,
+    "max_nesting_depth": 2,
+    "cyclomatic_complexity": 10,
+    "total_function_lines": 34,
+    "average_function_length": 34.0,
+    "function_names": [
+      "f"
+    ],
+    "imported_modules": [],
+    "unique_variables": 9,
+    "builtin_functions_used": [
+      "len",
+      "range"
+    ],
+    "statistics_increments": [],
+    "total_control_structures": 9,
+    "code_complexity_score": 39.0,
+    "parsing_success": true,
+    "parsing_error": null
+  }
+}

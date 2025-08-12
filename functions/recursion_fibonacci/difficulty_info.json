@@ -1,0 +1,44 @@
+{
+  "function_name": "recursion_fibonacci",
+  "task_id": "recursion_fibonacci",
+  "complexity_score": 30.67,
+  "ast_analysis": {
+    "function_count": 3,
+    "class_count": 0,
+    "import_count": 0,
+    "if_statements": 4,
+    "for_loops": 1,
+    "while_loops": 0,
+    "try_blocks": 0,
+    "with_statements": 0,
+    "function_calls": 7,
+    "return_statements": 6,
+    "assignments": 11,
+    "comparisons": 4,
+    "boolean_operations": 1,
+    "lists_created": 10,
+    "dicts_created": 2,
+    "sets_created": 0,
+    "tuples_created": 4,
+    "max_nesting_depth": 1,
+    "cyclomatic_complexity": 6,
+    "total_function_lines": 46,
+    "average_function_length": 15.33,
+    "function_names": [
+      "f",
+      "mat_mult",
+      "mat_pow"
+    ],
+    "imported_modules": [],
+    "unique_variables": 8,
+    "builtin_functions_used": [
+      "int",
+      "range"
+    ],
+    "statistics_increments": [],
+    "total_control_structures": 5,
+    "code_complexity_score": 30.67,
+    "parsing_success": true,
+    "parsing_error": null
+  }
+}

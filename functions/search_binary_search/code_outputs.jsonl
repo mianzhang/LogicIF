@@ -1,0 +1,4 @@
+{"case_id": 0, "output": 2, "stats": {"phases": 1, "interpolations": 1, "binary_steps": 0}, "input": [[1, 2, 3, 4, 5], 3], "success": true}
+{"case_id": 1, "output": 2, "stats": {"phases": 1, "interpolations": 1, "binary_steps": 0}, "input": [[1, 3, 5, 7, 9], 5], "success": true}
+{"case_id": 2, "output": -1, "stats": {"phases": 2, "interpolations": 1, "binary_steps": 3}, "input": [[1, 2, 3, 4, 5], 6], "success": true}
+{"case_id": 3, "output": -1, "stats": {"phases": 0, "interpolations": 0, "binary_steps": 0}, "input": [[], 1], "success": true}

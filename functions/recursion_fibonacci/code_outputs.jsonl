@@ -1,0 +1,4 @@
+{"case_id": 0, "output": 0, "stats": {"dp_steps": 0, "matrix_mults": 0, "binary_steps": 0}, "input": [0], "success": true}
+{"case_id": 1, "output": 1, "stats": {"dp_steps": 0, "matrix_mults": 0, "binary_steps": 0}, "input": [1], "success": true}
+{"case_id": 2, "output": 5, "stats": {"dp_steps": 1, "matrix_mults": 2, "binary_steps": 3}, "input": [5], "success": true}
+{"case_id": 3, "output": 55, "stats": {"dp_steps": 2, "matrix_mults": 4, "binary_steps": 5}, "input": [10], "success": true}
