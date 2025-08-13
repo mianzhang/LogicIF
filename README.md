@@ -33,9 +33,6 @@ Set up OpenAI API key in `config.json` (or use environment variables):
 ## Table of Contents
 
 [LogicIF: Complex Logical Instruction Following](#logicif-complex-logical-instruction-following)
-    - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-- [Table of Contents](#table-of-contents)
 - [🚀 Quick Start](#-quick-start)
   - [Evaluate Models on LogicIFEval or LogicIFEval-mini](#evaluate-models-on-logicifeval-or-logicifeval-mini)
     - [Step 1: Get Raw Responses](#step-1-get-raw-responses)
@@ -43,10 +40,10 @@ Set up OpenAI API key in `config.json` (or use environment variables):
     - [Get Metrics](#get-metrics)
 - [📝 LogicIFGen: Generating Instructions from Code Functions](#-logicifgen-generating-instructions-from-code-functions)
   - [Main Usage](#main-usage)
-    - [1. Prepare Functions and Test Cases](#1-prepare-functions-and-test-cases)
-    - [2. Run Instruction Generation](#2-run-instruction-generation)
+    - [Prepare Functions and Test Cases](#1-prepare-functions-and-test-cases)
+    - [Run Instruction Generation](#2-run-instruction-generation)
 - [🔬 Inference](#-inference)
-_ [📊 Evaluation](#-evaluation)
+- [📊 Evaluation](#-evaluation)
 
 ## 🚀 Quick Start
 ### Evaluate Models on [LogicIFEval](benchmark/logic-if-eval.jsonl) or [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl)
