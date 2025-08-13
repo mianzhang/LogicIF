@@ -1,3 +1,46 @@
+Metadata-Version: 2.4
+Name: logicif
+Version: 0.1.0
+Summary: A framework for generating algorithmic instructions from code functions and evaluating language model performance
+Home-page: https://github.com/your-org/logicif
+Author: LogicIF Team
+Author-email: 
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm>=4.60.0
+Requires-Dist: requests>=2.25.0
+Requires-Dist: openai>=1.0.0
+Provides-Extra: full
+Requires-Dist: transformers>=4.20.0; extra == "full"
+Requires-Dist: vllm>=0.2.0; extra == "full"
+Requires-Dist: numpy>=1.20.0; extra == "full"
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # LogicIF: Complex Logical Instruction Following
 
 LogicIF is a comprehensive framework for generating natural language instructions from code functions and evaluating LLMs performance. The framework consists of four main components:
@@ -9,49 +52,31 @@ LogicIF is a comprehensive framework for generating natural language instruction
 ```bash
 git clone https://github.com/your-org/logicif.git
 cd logicif
-```
-
-Basic usage (instruction generation, evaluation without vLLM-based inference):
-```bash
 pip install .
 ```
-
-If you want to run `inference.py` (vLLM-based inference):
-```bash
-pip install .[full]
-```
-
 #### Prerequisites
 
 Set up OpenAI API key in `config.json` (or use environment variables):
 ```json
 {
-    "OPENAI_API_KEY": "your-openai-key"
+    "OPENAI_API_KEY": "your-openai-key",
 }
 ```
 
 ## Table of Contents
 
 [LogicIF: Complex Logical Instruction Following](#logicif-complex-logical-instruction-following)
-- [LogicIF: Complex Logical Instruction Following](#logicif-complex-logical-instruction-following)
-      - [Installation](#installation)
-      - [Prerequisites](#prerequisites)
-  - [Table of Contents](#table-of-contents)
-  - [🚀 Quick Start](#-quick-start)
-    - [Evaluate Models on LogicIFEval or LogicIFEval-mini](#evaluate-models-on-logicifeval-or-logicifeval-mini)
-      - [Step 1: Get Raw Responses](#step-1-get-raw-responses)
-      - [Step 2: Extract Results](#step-2-extract-results)
-      - [Get Metrics](#get-metrics)
-  - [📝 LogicIFGen: Generating Instructions from Code Functions](#-logicifgen-generating-instructions-from-code-functions)
-    - [Main Usage](#main-usage)
-      - [1. Prepare Functions and Test Cases](#1-prepare-functions-and-test-cases)
-      - [2. Run Instruction Generation](#2-run-instruction-generation)
-  - [🔬 Inference](#-inference)
-    - [Inference](#inference)
-      - [Parameters](#parameters)
-  - [📊 Evaluation](#-evaluation)
-      - [Extract LLM Results](#extract-llm-results)
-      - [Compare Outputs](#compare-outputs)
+- [🚀 Quick Start](#-quick-start)
+  - [Evaluate Models on LogicIFEval or LogicIFEval-mini](#evaluate-models-on-logicifeval-or-logicifeval-mini)
+    - [Step 1: Get Raw Responses](#step-1-get-raw-responses)
+    - [Step 2: Extract Results](#step-2-extract-results)
+    - [Get Metrics](#get-metrics)
+- [📝 LogicIFGen: Generating Instructions from Code Functions](#-logicifgen-generating-instructions-from-code-functions)
+  - [Main Usage](#main-usage)
+    - [1. Prepare Functions and Test Cases](#1-prepare-functions-and-test-cases)
+    - [2. Run Instruction Generation](#2-run-instruction-generation)
+- [🔬 Inference](#-inference)
+- [📊 Evaluation](#-evaluation)
 
 ## 🚀 Quick Start
 ### Evaluate Models on [LogicIFEval](benchmark/logic-if-eval.jsonl) or [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl)

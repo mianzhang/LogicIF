@@ -31,12 +31,10 @@ setup(
     install_requires=[
         "tqdm>=4.60.0",
         "requests>=2.25.0",
+        "openai>=1.0.0",
     ],
     extras_require={
         "full": [
-            "openai>=1.0.0",
-            "anthropic>=0.3.0", 
-            "google-generativeai>=0.3.0",
             "transformers>=4.20.0",
             "vllm>=0.2.0",
             "numpy>=1.20.0",
