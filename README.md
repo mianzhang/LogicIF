@@ -16,7 +16,7 @@ Basic usage (instruction generation, evaluation without vLLM-based inference):
 pip install .
 ```
 
-If you want to run `inference.py` (vLLM-based inference):
+If you want to run inference.py (vLLM-based inference):
 ```bash
 pip install .[full]
 ```
