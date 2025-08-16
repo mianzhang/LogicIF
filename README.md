@@ -215,3 +215,17 @@ python -m logicif.evaluation \
 **Parameters**
 - `--result_file`: Path to file with extracted results
 
+## Contact
+
+Please email Mian (`mian.zhang@utdallas.edu`) if you have any questions. If you encounter any issues with the code, or data, please open an issue on GitHub.
+
+## Citation
+
+```bibtex
+@article{zhang2025complex,
+  title={Complex Logical Instruction Generation},
+  author={Zhang, Mian and Liu, Shujian and Dong, Sixun and Yin, Ming and Hu, Yebowen and Wang, Xun and Ma, Steven and Wang, Song and Indurthi, Sathish Reddy and Deng, Haoyun and others},
+  journal={arXiv preprint arXiv:2508.09125},
+  year={2025}
+}
+```
