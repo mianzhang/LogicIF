@@ -5,7 +5,11 @@ LogicIF is a comprehensive framework for generating natural language instruction
 1. **Instruction Generation Framework** (`LogicIFGen`) (core.py): the framework to generate natural language instructions from code functions.
 2. **Benchmarks**:  [LogicIFEval](benchmark/logic-if-eval.jsonl), a collection of 426 instructions with complex logical structures and [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl), a compute-friendly version (102 instructions) of  [LogicIFEval](benchmark/logic-if-eval.jsonl).
 3. **Inference** (inference.py) & **Evaluation** (evaluation.py): Easy inference and evaluation on generated benchmarks.
-#### Installation
+
+### Updates
+- **Aug 18.** LogicIFEval is now available on Hugging Face Datasets! You can easily explore task characteristics using the built-in dataset viewer: 👉 [https://huggingface.co/datasets/mianzhang/LogicIFEval](https://huggingface.co/datasets/billmianz/LogicIFEval)
+
+### Installation
 ```bash
 git clone https://github.com/your-org/logicif.git
 cd logicif
@@ -21,7 +25,7 @@ If you want to run inference.py (vLLM-based inference):
 pip install .[full]
 ```
 
-#### Prerequisites
+### Prerequisites
 
 Set up OpenAI API key in `config.json` (or use environment variables):
 ```json
