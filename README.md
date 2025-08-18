@@ -11,7 +11,7 @@ LogicIF is a comprehensive framework for generating natural language instruction
 
 ### Installation
 ```bash
-git clone https://github.com/your-org/logicif.git
+git clone [https://github.com/your-org/logicif.git](https://github.com/mianzhang/LogicIF)
 cd logicif
 ```
 
