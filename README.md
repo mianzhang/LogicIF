@@ -1,57 +1,25 @@
 # LogicIF: Complex Logical Instruction Following
 
-LogicIF is a comprehensive framework for generating natural language instructions from code functions and evaluating LLMs performance. The framework consists of four main components:
-
-1. **Instruction Generation Framework** (`LogicIFGen`) (core.py): the framework to generate natural language instructions from code functions.
-2. **Benchmarks**:  [LogicIFEval](benchmark/logic-if-eval.jsonl), a collection of 426 instructions with complex logical structures and [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl), a compute-friendly version (102 instructions) of  [LogicIFEval](benchmark/logic-if-eval.jsonl).
-3. **Inference** (inference.py) & **Evaluation** (evaluation.py): Easy inference and evaluation on generated benchmarks.
-
-### Updates
+## Updates
 - **Aug 18.** LogicIFEval is now available on Hugging Face Datasets! You can easily explore task characteristics using the built-in dataset viewer: 👉 [https://huggingface.co/datasets/mianzhang/LogicIFEval](https://huggingface.co/datasets/billmianz/LogicIFEval)
 
-### Installation
+---
+
+## Evaluate Models on [LogicIFEval](benchmark/logic-if-eval.jsonl) or [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl)
+The instructions are provided in the `instruction` field of the benchmark files. You need to create the a output file with at least the following fields:
+- `"task_id"`: The ID of the function.
+- `"test_case_id"`: The ID of the test case.
+- `"code_output"`: The output from code function.
+- `"llm_response"`: Models' response to the `instruction`.
+
+Then, call [evaluation.py](evaluation.py) to get the metrics:
 ```bash
-git clone https://github.com/mianzhang/LogicIF
-cd logicif
+python evaluation --result_file "/path/to_result_file"
 ```
 
-Basic usage (instruction generation, evaluation without vLLM-based inference):
-```bash
-pip install .
-```
 
-If you want to run inference.py (vLLM-based inference):
-```bash
-pip install .[full]
-```
 
-### Prerequisites
-
-Set up OpenAI API key in `config.json` (or use environment variables):
-```json
-{
-    "OPENAI_API_KEY": "your-openai-key"
-}
-```
-
-## Table of Contents
-
-[LogicIF: Complex Logical Instruction Following](#logicif-complex-logical-instruction-following)
-- [🚀 Quick Start](#-quick-start)
-  - [Evaluate Models on LogicIFEval or LogicIFEval-mini](#evaluate-models-on-logicifeval-or-logicifeval-mini)
-    - [Step 1: Get Raw Responses](#step-1-get-raw-responses)
-    - [Step 2: Extract Results](#step-2-extract-results)
-    - [Get Metrics](#get-metrics)
-- [📝 LogicIFGen: Generating Instructions from Code Functions](#-logicifgen-generating-instructions-from-code-functions)
-  - [Main Usage](#main-usage)
-    - [Prepare Functions and Test Cases](#1-prepare-functions-and-test-cases)
-    - [Run Instruction Generation](#2-run-instruction-generation)
-- [🔬 Inference](#-inference)
-- [📊 Evaluation](#-evaluation)
-
-## 🚀 Quick Start
-### Evaluate Models on [LogicIFEval](benchmark/logic-if-eval.jsonl) or [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl)
-Your model should be supported by `vllm` in order to use our inference script inference.py. Or you need to directly provide a file with the same format as [sample_result.jsonl](sample_result.jsonl) and use the [evaluation.py](evaluation.py) to get the metrics.
+<!-- Your model should be supported by `vllm` in order to use our inference script inference.py. Or you need to directly provide a file with the same format as [sample_result.jsonl](sample_result.jsonl) and use the [evaluation.py](evaluation.py) to get the metrics.
 
 For each intruction, we apply a two steps to get the final results (a json object: `{"output": ..., "stats": {...}}`): 
 - **Step 1**: get the raw responses of the models (`llm_response` field of [sample_inference_output.jsonl](sample_inference_output.jsonl))
@@ -80,23 +48,52 @@ python -m logicif.evaluation \
     --output_file "/path/to/result_file" \
     --extract_model "gpt-4.1-mini" \ # used in our paper, works well
     --overwrite
-```
+``` -->
 
-#### Get Metrics
+<!-- #### Get Metrics
 Compare extracted results against code outputs, including the output accuray, state tracker accuracy, and overall accuracy:
 
 ```bash
 python -m logicif.evaluation \
     --todo compare_outputs \
     --result_file "/path/to_result_file"
-```
+``` -->
 
 
 
 
-## 📝 LogicIFGen: Generating Instructions from Code Functions
+
+
+<!-- LogicIF is a comprehensive framework for generating natural language instructions from code functions and evaluating LLMs performance. The framework consists of four main components:
+
+1. **Instruction Generation Framework** (`LogicIFGen`) (core.py): the framework to generate natural language instructions from code functions.
+2. **Benchmarks**:  [LogicIFEval](benchmark/logic-if-eval.jsonl), a collection of 426 instructions with complex logical structures and [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl), a compute-friendly version (102 instructions) of  [LogicIFEval](benchmark/logic-if-eval.jsonl).
+3. **Inference** (inference.py) & **Evaluation** (evaluation.py): Easy inference and evaluation on generated benchmarks.
+ -->
+
+
+
+---
+
+## LogicIFGen: Generating Instructions from Code Functions
 
 LogicIFGen transforms code functions into detailed natural language instructions that can be used for benchmarking language models and model training.
+
+### Installation
+```bash
+git clone https://github.com/mianzhang/LogicIF
+cd logicif
+pip install -e .
+```
+
+### Prerequisites
+
+Set up OpenAI API key in `config.json` (or use environment variables):
+```json
+{
+    "OPENAI_API_KEY": "your-openai-key"
+}
+```
 
 ### Main Usage
 #### 1. Prepare Functions and Test Cases
@@ -159,7 +156,7 @@ The genereted file is like `sample_instructions.jsonl`. Each line contains a com
 - `"complexity_score"`: Complexity score for the function
 
 
-## 🔬 Inference
+<!-- ## 🔬 Inference
 
 The inference module uses `vllm` to run language model inference on benchmark files. If you want to evaluate the models on custom functions, please follow the previous section to generation instructions. You could also evaluate the models on `LogicIFEval` or `LogicIFEval-mini` located in `benchmark/`, which share the same format as `sample_instructions.jsonl`.
 
@@ -217,7 +214,7 @@ python -m logicif.evaluation \
 ```
 
 **Parameters**
-- `--result_file`: Path to file with extracted results
+- `--result_file`: Path to file with extracted results -->
 
 ## Contact
 
