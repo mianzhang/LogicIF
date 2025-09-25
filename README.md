@@ -12,6 +12,7 @@ The instructions are provided in the `instruction` field of the benchmark files.
 - `"test_case_id"`: The ID of the test case.
 - `"code_output"`: The output from code function.
 - `"response"`: Models' response to the `instruction`.
+
 The output file with the responses of gpt-5 can be found [here](benchmark/logicifevalmini-gpt5.jsonl).
 
 Then, call [evaluation.py](evaluation.py) to get the metrics:
