@@ -12,12 +12,13 @@ The instructions are provided in the `instruction` field of the benchmark files.
 - `"test_case_id"`: The ID of the test case.
 - `"code_output"`: The output from code function.
 - `"response"`: Models' response to the `instruction`.
+The output file with the responses of gpt-5 can be found [here](benchmark/logicifevalmini-gpt5.jsonl).
 
 Then, call [evaluation.py](evaluation.py) to get the metrics:
 ```bash
-python evaluation --result_file "/path/to_output_file"
-# Case-level Accuracy: XXX
-# Question-level Accuracy: XXX
+python evaluation --result_file benchmark/logicifevalmini-gpt5.jsonl
+# Case-level Accuracy: 0.9506008010680908
+# Question-level Accuracy: 0.8921568627450981
 ```
 
 ---
