@@ -53,15 +53,25 @@ def eval_response_file(result_file: str) -> Dict[str, Any]:
         both_matches = 0
         total_cases = len(entries)
         
+
+        def check_llm_output_format(input):
+            if not isinstance(input, dict):
+                return False
+            if "output" not in input:
+                return False
+            if "stats" not in input:
+                return False
+            return True
+
         for entry in entries:
             code_output = entry["code_output"]
-            llm_output = jsonparse.extract_valid_json(entry["llm_response"])
+            llm_output = jsonparse.extract_valid_json(entry["response"])
             
             # Compare outputs and stats
             expected_output = code_output["output"]
             expected_stats = code_output["stats"]
-            actual_output = llm_output["output"] if llm_output is not None else None
-            actual_stats = llm_output["stats"] if llm_output is not None else None
+            actual_output = llm_output["output"] if llm_output is not None and check_llm_output_format(llm_output) else None
+            actual_stats = llm_output["stats"] if llm_output is not None and check_llm_output_format(llm_output) else None
             
             output_match = expected_output == actual_output
             stats_match = expected_stats == actual_stats
@@ -87,15 +97,17 @@ def eval_response_file(result_file: str) -> Dict[str, Any]:
     
     # Calculate and print summary
     if comparison_results:
+        total_test_cases = sum(r["total_test_cases"] for r in comparison_results)
+        case_level_accuracy = sum(r["both_matches"] for r in comparison_results) / total_test_cases
+
         total_problems = len(comparison_results)
-        output_accuracy = sum(r["both_matches"] == r["total_test_cases"] for r in comparison_results) / total_problems
-        stats_accuracy = sum(r["stats_matches"] == r["total_test_cases"] for r in comparison_results) / total_problems
-        both_accuracy = sum(r["both_matches"] == r["total_test_cases"] for r in comparison_results) / total_problems
+        question_level_accuracy = sum(r["both_matches"] == r["total_test_cases"] for r in comparison_results) / total_problems
+
+
         
     result = {
-        "output": output_accuracy,
-        "stats": stats_accuracy,
-        "both": both_accuracy
+        "case_level_accuracy": case_level_accuracy,
+        "question_level_accuracy": question_level_accuracy,
     }
     
     return result
@@ -111,7 +123,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     result = eval_response_file(result_file=args.result_file)
-    print(f"Output accuracy: {result['output']}")
-    print(f"Stats accuracy: {result['stats']}")
-    print(f"Both accuracy: {result['both']}")
+
+    print(f"Case-level Accuracy: {result['case_level_accuracy']}")
+    print(f"Question-level Accuracy: {result['question_level_accuracy']}")
     

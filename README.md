@@ -1,6 +1,7 @@
 # LogicIF: Complex Logical Instruction Following
 
 ## Updates
+- **Sep 25.** We replaced the JSON object extraction via OpenAI with a rule-based JSON extractor, which makes the evaluation process mush easier!
 - **Aug 18.** LogicIFEval is now available on Hugging Face Datasets! You can easily explore task characteristics using the built-in dataset viewer: 👉 [https://huggingface.co/datasets/mianzhang/LogicIFEval](https://huggingface.co/datasets/billmianz/LogicIFEval)
 
 ---
@@ -10,68 +11,14 @@ The instructions are provided in the `instruction` field of the benchmark files.
 - `"task_id"`: The ID of the function.
 - `"test_case_id"`: The ID of the test case.
 - `"code_output"`: The output from code function.
-- `"llm_response"`: Models' response to the `instruction`.
+- `"response"`: Models' response to the `instruction`.
 
 Then, call [evaluation.py](evaluation.py) to get the metrics:
 ```bash
-python evaluation --result_file "/path/to_result_file"
+python evaluation --result_file "/path/to_output_file"
+# Case-level Accuracy: XXX
+# Question-level Accuracy: XXX
 ```
-
-
-
-<!-- Your model should be supported by `vllm` in order to use our inference script inference.py. Or you need to directly provide a file with the same format as [sample_result.jsonl](sample_result.jsonl) and use the [evaluation.py](evaluation.py) to get the metrics.
-
-For each intruction, we apply a two steps to get the final results (a json object: `{"output": ..., "stats": {...}}`): 
-- **Step 1**: get the raw responses of the models (`llm_response` field of [sample_inference_output.jsonl](sample_inference_output.jsonl))
-- **Step 2**: use a small OpenAI model to extract the json object. (`llm_output` field of [sample_result.jsonl](sample_result.jsonl))
-
-**Note**: You may skip the Step 1 if you use other inference framework to get the responses and Step 2 if you use other methods to extract the result jsonl object. 
-
-#### Step 1: Get Raw Responses
-```
-python -m logicif.inference \
-    --input "benchmark/logic-if-eval-mini.jsonl" \
-    --output "/path/to/inference_output_file" \
-    --model "/path/to/your/model" \
-    --max-tokens 16384 \
-    --gpu-memory-utilization 0.8 \
-    --overwrite
-```
-#### Step 2: Extract Results
-
-Extract structured outputs from raw model responses:
-
-```bash
-python -m logicif.evaluation \
-    --todo extract_llm_results \
-    --input_file "/path/to/inference_output_file" \
-    --output_file "/path/to/result_file" \
-    --extract_model "gpt-4.1-mini" \ # used in our paper, works well
-    --overwrite
-``` -->
-
-<!-- #### Get Metrics
-Compare extracted results against code outputs, including the output accuray, state tracker accuracy, and overall accuracy:
-
-```bash
-python -m logicif.evaluation \
-    --todo compare_outputs \
-    --result_file "/path/to_result_file"
-``` -->
-
-
-
-
-
-
-<!-- LogicIF is a comprehensive framework for generating natural language instructions from code functions and evaluating LLMs performance. The framework consists of four main components:
-
-1. **Instruction Generation Framework** (`LogicIFGen`) (core.py): the framework to generate natural language instructions from code functions.
-2. **Benchmarks**:  [LogicIFEval](benchmark/logic-if-eval.jsonl), a collection of 426 instructions with complex logical structures and [LogicIFEval-mini](benchmark/logic-if-eval-mini.jsonl), a compute-friendly version (102 instructions) of  [LogicIFEval](benchmark/logic-if-eval.jsonl).
-3. **Inference** (inference.py) & **Evaluation** (evaluation.py): Easy inference and evaluation on generated benchmarks.
- -->
-
-
 
 ---
 
@@ -155,66 +102,6 @@ The genereted file is like `sample_instructions.jsonl`. Each line contains a com
 - `"instruction"`: The complete instruction prompt
 - `"complexity_score"`: Complexity score for the function
 
-
-<!-- ## 🔬 Inference
-
-The inference module uses `vllm` to run language model inference on benchmark files. If you want to evaluate the models on custom functions, please follow the previous section to generation instructions. You could also evaluate the models on `LogicIFEval` or `LogicIFEval-mini` located in `benchmark/`, which share the same format as `sample_instructions.jsonl`.
-
-### Inference
-```bash
-python -m logicif.inference \
-    --input "sample_instructions.jsonl" \
-    --output "sample_inference_output.jsonl" \
-    --model "/path/to/your/model" \
-    --max-tokens 16384 \
-    --gpu-memory-utilization 0.8 \
-    --overwrite
-```
-
-#### Parameters
-
-- `--input`: Input benchmark JSONL file with instructions
-- `--output`: Output file to save model responses
-- `--model`: HuggingFace model ID or local path
-- `--max-tokens`: Maximum tokens to generate (default: 16384)
-- `--run-name`: Optional run name for experiment tracking
-- `--overwrite`: Overwrite existing output file
-- `--gpu-memory-utilization`: GPU memory utilization ratio (default: 0.8)
-
-## 📊 Evaluation
-
-The evaluation module provides tools to extract model outputs and compare them against expected results. In our paper, we use `gpt-4.1-mini` as the json extractor.
-
-#### Extract LLM Results
-
-Extract structured outputs from raw model responses:
-
-```bash
-python -m logicif.evaluation \
-    --todo extract_llm_results \
-    --input_file "sample_inference_output.jsonl" \
-    --output_file "sample_result.jsonl" \
-    --extract_model "gpt-4.1-mini" \
-    --overwrite
-```
-**Parameters**
-- `--input_file`: JSONL file with raw model responses
-- `--output_file`: Output file for extracted results
-- `--extract_model`: Model to use for output extraction
-- `--overwrite`: Overwrite existing files
-
-#### Compare Outputs
-
-Compare extracted results against expected outputs:
-
-```bash
-python -m logicif.evaluation \
-    --todo compare_outputs \
-    --result_file "sample_result.jsonl"
-```
-
-**Parameters**
-- `--result_file`: Path to file with extracted results -->
 
 ## Contact
 
