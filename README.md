@@ -13,13 +13,13 @@ The instructions are provided in the `instruction` field of the benchmark files.
 - `"code_output"`: The output from code function.
 - `"response"`: Models' response to the `instruction`.
 
-The output file with the responses of gpt-5 can be found [here](benchmark/logicifevalmini-gpt5.jsonl).
+The output file with the responses of gpt-5 and [facebook/cwm](https://huggingface.co/facebook/cwm) can be found in `benchmark/`.
 
 Then, call [evaluation.py](evaluation.py) to get the metrics:
 ```bash
-python evaluation --result_file benchmark/logicifevalmini-gpt5.jsonl
-# Case-level Accuracy: 0.9506008010680908
-# Question-level Accuracy: 0.8921568627450981
+python evaluation --result_file benchmark/logicifevalmini-cwm.jsonl
+# Case-level Accuracy: 0.8144192256341789
+# Question-level Accuracy: 0.47058823529411764
 ```
 
 ---

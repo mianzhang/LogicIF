@@ -11,6 +11,11 @@ class QWEN3_32B:
     model_path = "/localdisk/models/Qwen3-32B"
 
 @dataclass
+class CWM:
+    nickname = "cwm"
+    model_path = "/localdisk/models/facebook/cwm"
+
+@dataclass
 class GPT_5:
     nickname = "gpt5"
     model_path = "gpt-5"
@@ -22,17 +27,17 @@ class LOGICIFEVALMINI:
     prompt_path = "benchmark/logic-if-eval-mini.jsonl"
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2,3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 
-for model in [GPT_5]:
+for model in [CWM]:
     for benchmark in [LOGICIFEVALMINI]:
         llminfer.process_jsonl(
             benchmark.prompt_path,
             f'benchmark/{benchmark.nickname}-{model.nickname}.jsonl',
-            provider="openai",
+            provider="vllm",
             model=model.model_path,
             input_key=benchmark.input_key,  # Key pointing to string prompts
-            max_completion_tokens=16384,
-            max_workers=100,
+            max_tokens=16384,
+            # max_completion_tokens=16384
         )
