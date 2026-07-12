@@ -1,4 +1,4 @@
-# LogicIF: Complex Logical Instruction Following
+# LogicIF: Towards Complex Logic Instruction Following
 
 ## Updates
 - **Sep 25.** We replaced the JSON object extraction via OpenAI with a rule-based JSON extractor, which makes the evaluation process mush easier!
