@@ -1,6 +1,7 @@
 # LogicIF: Towards Complex Logic Instruction Following
 
 ## Updates
+- **Jun 11.** LogicIF just got accepted in COLM 2026! Please see the updated version of the paper [LogicIF_paper.pdf](LogicIF_paper.pdf) with a new section exploring the power of LogicIF training. We will also share the training data, codes, and models soon. Stay tuned.
 - **Sep 25.** We replaced the JSON object extraction via OpenAI with a rule-based JSON extractor, which makes the evaluation process mush easier!
 - **Aug 18.** LogicIFEval is now available on Hugging Face Datasets! You can easily explore task characteristics using the built-in dataset viewer: 👉 [https://huggingface.co/datasets/mianzhang/LogicIFEval](https://huggingface.co/datasets/billmianz/LogicIFEval)
 
